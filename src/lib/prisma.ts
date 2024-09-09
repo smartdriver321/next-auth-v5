@@ -6,7 +6,7 @@ const prismaClientSingleton = () => {
   // TODO: Make this edge-compatible
   const neon = new Pool({ connectionString: process.env.POSTGRES_PRISMA_URL });
   const adapter = new PrismaNeon(neon);
-  return new PrismaClient();
+  return new PrismaClient({ adapter });
 };
 
 declare global {
